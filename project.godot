@@ -16,7 +16,19 @@ _global_script_class_icons={
 [application]
 
 config/name="godot_dragonbones_tutorial"
+run/main_scene="res://WelcomeToTheGame.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Ground"
 
 [rendering]
 

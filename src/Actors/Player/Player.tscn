@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Actors/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Player/Player_ske.json" type="GDDragonBonesResource" id=2]
+[ext_resource path="res://assets/Player/Player_tex.png" type="Texture" id=3]
+[ext_resource path="res://assets/Sound/left_foot.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Sound/right_foot.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 55.6587 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 899.759, 548.265 )
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8.40894 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="GDDragonBones" parent="."]
+position = Vector2( 0, -5.04541 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+resource = ExtResource( 2 )
+playback/curr_animation = "Walk"
+
+[node name="LeftFoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="RightFoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )

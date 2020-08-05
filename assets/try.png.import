@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Guy_Girl_Animation_run_tex.png-01b18e4148aafbe137450a3672685a3e.stex"
+path="res://.import/try.png-d14962dd855200050108364d1f963ef3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Guy_Girl_Animation_run_tex.png"
-dest_files=[ "res://.import/Guy_Girl_Animation_run_tex.png-01b18e4148aafbe137450a3672685a3e.stex" ]
+source_file="res://assets/try.png"
+dest_files=[ "res://.import/try.png-d14962dd855200050108364d1f963ef3.stex" ]
 
 [params]
 
