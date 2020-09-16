@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/character/Character_ske.json" type="GDDragonBonesResource" id=1]
 [ext_resource path="res://assets/character/Character_tex.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://WelcomeToTheGame.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 64
 font_data = ExtResource( 3 )
 
@@ -308,12 +312,48 @@ margin_bottom = 20.0
 size_flags_horizontal = 3
 text = "Next Display"
 
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 342.0
+margin_right = 476.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer6"]
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="SlotColor" type="ColorPicker" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 364.0
+margin_right = 476.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 830.0
+margin_right = 476.0
+margin_bottom = 834.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 838.0
+margin_right = 476.0
+margin_bottom = 1050.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 83.1444
 margin_top = 25.4269
 margin_right = 1310.14
 margin_bottom = 103.427
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Godot Dragonbones 3.2.52"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -328,3 +368,4 @@ __meta__ = {
 [connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer4/SlotSelection" to="." method="_slot_selected"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/PrevDisplay" to="." method="_cycle_armature_slot" binds= [ false ]]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/NextDisplay" to="." method="_cycle_armature_slot" binds= [ true ]]
+[connection signal="color_changed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/SlotColor" to="." method="_on_slot_color_changed"]
