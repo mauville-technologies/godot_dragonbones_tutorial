@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Demo/InverseKinematics/MechBoard.gd" type="Script" id=1]
 [ext_resource path="res://assets/demos/mecha_1406/mecha_1406_ske.json" type="GDDragonBonesResource" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://neuropol x rg.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/demos/floor_board/floor_board_tex.png" type="Texture" id=5]
 [ext_resource path="res://assets/demos/mecha_1406/mecha_1406_tex.png" type="Texture" id=6]
+[ext_resource path="res://src/component/DemoPicker.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -416,6 +417,10 @@ text = "Godot Dragonbones 3.2.52"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DemoPicker" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2.85875, 3.51595 )
+scale = Vector2( 2, 2 )
 [connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer/ArmatureSelection" to="." method="_amature_changed"]
 [connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer2/AnimationSelection" to="." method="_animation_selected"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/PlayAnimation" to="." method="_play"]
