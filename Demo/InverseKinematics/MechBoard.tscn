@@ -1,0 +1,429 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Demo/InverseKinematics/MechBoard.gd" type="Script" id=1]
+[ext_resource path="res://assets/demos/mecha_1406/mecha_1406_ske.json" type="GDDragonBonesResource" id=2]
+[ext_resource path="res://assets/demos/floor_board/floor_board_ske.json" type="GDDragonBonesResource" id=3]
+[ext_resource path="res://neuropol x rg.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/demos/floor_board/floor_board_tex.png" type="Texture" id=5]
+[ext_resource path="res://assets/demos/mecha_1406/mecha_1406_tex.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FloorBoard" type="GDDragonBones" parent="CanvasLayer"]
+position = Vector2( 700, 710.091 )
+rotation = 0.0510235
+texture = ExtResource( 5 )
+resource = ExtResource( 3 )
+playback/play = true
+playback/curr_animation = "idle"
+
+[node name="BackBoard" type="Node2D" parent="CanvasLayer/FloorBoard"]
+position = Vector2( -60.6506, 91.8955 )
+
+[node name="BackFoot" type="Node2D" parent="CanvasLayer/FloorBoard"]
+position = Vector2( -50.0698, -20.0348 )
+
+[node name="FrontFoot" type="Node2D" parent="CanvasLayer/FloorBoard"]
+position = Vector2( 37.2476, -31.2284 )
+
+[node name="FrontBoard" type="Node2D" parent="CanvasLayer/FloorBoard"]
+position = Vector2( 292.901, -15.5366 )
+rotation = -0.0199082
+
+[node name="DemoRig" type="GDDragonBones" parent="CanvasLayer"]
+position = Vector2( 700, 701.615 )
+texture = ExtResource( 6 )
+resource = ExtResource( 2 )
+playback/curr_animation = "Idle"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -554.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 547.0
+margin_bottom = 1073.0
+rect_min_size = Vector2( 540, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 16.0
+margin_right = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_right = 476.0
+margin_bottom = 14.0
+text = "Controls"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 476.0
+margin_bottom = 22.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 26.0
+margin_right = 476.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_top = 3.0
+margin_right = 236.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Currently working on armature:"
+
+[node name="ArmatureSelection" type="OptionButton" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 240.0
+margin_right = 476.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 50.0
+margin_right = 476.0
+margin_bottom = 54.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 58.0
+margin_right = 476.0
+margin_bottom = 72.0
+text = "Animations"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 76.0
+margin_right = 476.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer2"]
+margin_top = 3.0
+margin_right = 236.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Selected Animation:"
+
+[node name="AnimationSelection" type="OptionButton" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer2"]
+margin_left = 240.0
+margin_right = 476.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="PlayAnimation" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 100.0
+margin_right = 476.0
+margin_bottom = 120.0
+text = "Play Animation"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 124.0
+margin_right = 476.0
+margin_bottom = 148.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer3"]
+margin_top = 5.0
+margin_right = 398.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Play from progress (%)"
+
+[node name="ProgressSelection" type="SpinBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer3"]
+margin_left = 402.0
+margin_right = 476.0
+margin_bottom = 24.0
+max_value = 1.0
+step = 0.01
+
+[node name="PlayAnimationProgress" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 152.0
+margin_right = 476.0
+margin_bottom = 172.0
+text = "Play From Progress"
+
+[node name="FadeSettings" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 176.0
+margin_right = 476.0
+margin_bottom = 218.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings"]
+margin_right = 92.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "time"
+
+[node name="FadeTime" type="SpinBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 42.0
+step = 0.01
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings"]
+margin_left = 96.0
+margin_right = 188.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer2"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Loop"
+
+[node name="FadeLoop" type="SpinBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 42.0
+min_value = -1.0
+max_value = 999999.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings"]
+margin_left = 192.0
+margin_right = 284.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer3"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Layer"
+
+[node name="FadeLayer" type="SpinBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer3"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 42.0
+min_value = -1.0
+max_value = 999999.0
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings"]
+margin_left = 288.0
+margin_right = 380.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer4"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Group"
+
+[node name="FadeGroup" type="LineEdit" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer4"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 42.0
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings"]
+margin_left = 384.0
+margin_right = 476.0
+margin_bottom = 42.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer5"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "FadeMode"
+
+[node name="FadeMode" type="OptionButton" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSettings/VBoxContainer5"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 38.0
+
+[node name="FadeInAnimation" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 222.0
+margin_right = 476.0
+margin_bottom = 242.0
+text = "Fade In Animation"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 246.0
+margin_right = 476.0
+margin_bottom = 290.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7"]
+margin_right = 408.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StopSelectedAnimation" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer"]
+margin_right = 408.0
+margin_bottom = 20.0
+text = "Stop Selected Animation"
+
+[node name="StopAllAnimations" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer"]
+margin_top = 24.0
+margin_right = 408.0
+margin_bottom = 44.0
+text = "Stop All Animations"
+
+[node name="ResetBox" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7"]
+margin_left = 412.0
+margin_right = 476.0
+margin_bottom = 44.0
+text = "Reset"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 294.0
+margin_right = 476.0
+margin_bottom = 314.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer4"]
+margin_top = 3.0
+margin_right = 236.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Selected Slot:"
+
+[node name="SlotSelection" type="OptionButton" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer4"]
+margin_left = 240.0
+margin_right = 476.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 318.0
+margin_right = 476.0
+margin_bottom = 338.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PrevDisplay" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5"]
+margin_right = 236.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Previous Display"
+
+[node name="NextDisplay" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5"]
+margin_left = 240.0
+margin_right = 476.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Next Display"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 342.0
+margin_right = 476.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer6"]
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="SlotColor" type="ColorPicker" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 364.0
+margin_right = 476.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 830.0
+margin_right = 476.0
+margin_bottom = 834.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 838.0
+margin_right = 476.0
+margin_bottom = 852.0
+text = "Animation Loop Complete Events"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator4" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 856.0
+margin_right = 476.0
+margin_bottom = 860.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 864.0
+margin_right = 476.0
+margin_bottom = 1050.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 83.1444
+margin_top = 25.4269
+margin_right = 1310.14
+margin_bottom = 103.427
+custom_fonts/font = SubResource( 2 )
+text = "Godot Dragonbones 3.2.52"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer/ArmatureSelection" to="." method="_amature_changed"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer2/AnimationSelection" to="." method="_animation_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/PlayAnimation" to="." method="_play"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/PlayAnimationProgress" to="." method="_play_from_progress"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeInAnimation" to="." method="_fadein"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer/StopSelectedAnimation" to="." method="_stop_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer/StopAllAnimations" to="." method="stop_all"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer4/SlotSelection" to="." method="_slot_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/PrevDisplay" to="." method="_cycle_armature_slot" binds= [ false ]]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/NextDisplay" to="." method="_cycle_armature_slot" binds= [ true ]]
+[connection signal="color_changed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/SlotColor" to="." method="_on_slot_color_changed"]
