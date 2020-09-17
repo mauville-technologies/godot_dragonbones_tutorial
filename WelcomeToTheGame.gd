@@ -13,6 +13,7 @@ onready var fademode = $CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeSetti
 onready var slot_colorpicker = $CanvasLayer/PanelContainer/Panel/VBoxContainer/SlotColor
 onready var color_label = $CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer6/Label
 onready var events = $CanvasLayer/PanelContainer/Panel/VBoxContainer/RichTextLabel
+onready var reset_box = $CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/ResetBox
 
 var current_slot : String = ''
 var current_armature : String = ''
@@ -109,10 +110,11 @@ func _play_from_progress():
 
 
 func _stop_selected():
-	_get_current_armature().stop(current_animation,true)
+	print(reset_box.pressed)
+	_get_current_armature().stop(current_animation, reset_box.pressed)
 
 func stop_all():
-	_get_current_armature().stop_all_animations(true, true)
+	_get_current_armature().stop_all_animations(reset_box.pressed, true)
 
 func _fadein():
 	_get_current_armature().fade_in(current_animation,

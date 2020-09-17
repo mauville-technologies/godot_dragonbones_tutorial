@@ -258,17 +258,36 @@ margin_right = 476.0
 margin_bottom = 242.0
 text = "Fade In Animation"
 
-[node name="StopSelectedAnimation" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
 margin_top = 246.0
 margin_right = 476.0
-margin_bottom = 266.0
+margin_bottom = 290.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7"]
+margin_right = 408.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StopSelectedAnimation" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer"]
+margin_right = 408.0
+margin_bottom = 20.0
 text = "Stop Selected Animation"
 
-[node name="StopAllAnimations" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
-margin_top = 270.0
-margin_right = 476.0
-margin_bottom = 290.0
+[node name="StopAllAnimations" type="Button" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer"]
+margin_top = 24.0
+margin_right = 408.0
+margin_bottom = 44.0
 text = "Stop All Animations"
+
+[node name="ResetBox" type="CheckBox" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7"]
+margin_left = 412.0
+margin_right = 476.0
+margin_bottom = 44.0
+text = "Reset"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
 margin_top = 294.0
@@ -338,8 +357,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+[node name="Label3" type="Label" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
 margin_top = 838.0
+margin_right = 476.0
+margin_bottom = 852.0
+text = "Animation Loop Complete Events"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator4" type="HSeparator" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 856.0
+margin_right = 476.0
+margin_bottom = 860.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PanelContainer/Panel/VBoxContainer"]
+margin_top = 864.0
 margin_right = 476.0
 margin_bottom = 1050.0
 size_flags_horizontal = 3
@@ -363,8 +399,8 @@ __meta__ = {
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/PlayAnimation" to="." method="_play"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/PlayAnimationProgress" to="." method="_play_from_progress"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/FadeInAnimation" to="." method="_fadein"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/StopSelectedAnimation" to="." method="_stop_selected"]
-[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/StopAllAnimations" to="." method="stop_all"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer/StopSelectedAnimation" to="." method="_stop_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer7/VBoxContainer/StopAllAnimations" to="." method="stop_all"]
 [connection signal="item_selected" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer4/SlotSelection" to="." method="_slot_selected"]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/PrevDisplay" to="." method="_cycle_armature_slot" binds= [ false ]]
 [connection signal="pressed" from="CanvasLayer/PanelContainer/Panel/VBoxContainer/HBoxContainer5/NextDisplay" to="." method="_cycle_armature_slot" binds= [ true ]]
